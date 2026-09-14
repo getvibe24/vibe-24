@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibe — Same city. Different vibes.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ambient Background Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Main Container -->
+  <div class="app-container">
+    
+    <!-- Top Header Navigation (Global) -->
+    <header class="app-header" id="appHeader">
+      <div class="header-brand" id="headerHomeBtn">
+        <svg class="brand-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 3a9 9 0 0 0-9 9"/>
+        </svg>
+        <span class="logo-text">Vibe</span>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="headerSafetyBtn" aria-label="Safety & Privacy" title="Safety & Privacy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </button>
+        <button class="icon-btn" id="headerProfileBtn" aria-label="Profile" title="Profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Screens Container -->
+    <main class="screens-wrapper">
+
+      <!-- SCREEN 1: WELCOME -->
+      <section class="screen active" id="screen-welcome">
+        <div class="screen-content center-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span> 100% Anonymous & Safe
+          </div>
+          
+          <h1 class="hero-title">Same city.<br/>Different vibes.</h1>
+          <p class="hero-description">
+            Connect anonymously with people in your nearby zone. No names, exact addresses, or public profiles.
+          </p>
+
+          <div class="feature-pills">
+            <div class="pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              100% Anonymous
+            </div>
+            <div class="pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Broad Zones
+            </div>
+            <div class="pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Private
+            </div>
+          </div>
+
+          <div class="screen-footer">
+            <button class="btn btn-primary btn-block" id="startBtn">Get Started</button>
+            <p class="notice-text">18+ only • No exact coordinates ever shared</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 2: LOCATION METHOD -->
+      <section class="screen" id="screen-location-method">
+        <button class="back-btn" data-back="screen-welcome">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back
+        </button>
+        <div class="screen-content">
+          <h2 class="screen-title">Where are you around?</h2>
+          <p class="screen-subtitle">Choose how Vibe detects your broad zone. We never record or share exact coordinates.</p>
+
+          <div class="option-cards-group">
+            <div class="option-card" id="useLocationBtn">
+              <div class="option-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+              </div>
+              <div class="option-info">
+                <h3>Use My Location</h3>
+                <p>Detect your nearest broad area automatically.</p>
+              </div>
+            </div>
+
+            <div class="option-card" id="selectManualBtn">
+              <div class="option-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 6v13l7-4 8 4 7-4V4l-7 4-8-4-7 4z"/><path d="M8 2v13M16 6v13"/></svg>
+              </div>
+              <div class="option-info">
+                <h3>Select Area Manually</h3>
+                <p>Choose your area manually from a list.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 3: SELECT AREA -->
+      <section class="screen" id="screen-select-area">
+        <button class="back-btn" data-back="screen-location-method">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back
+        </button>
+        <div class="screen-content">
+          <h2 class="screen-title">Select your Broad Area</h2>
+          <p class="screen-subtitle">Only this broad region will be shown to nearby users.</p>
+
+          <div class="area-grid" id="areaGrid">
+            <button class="area-chip" data-area="Gurukul Kangri">Gurukul Kangri</button>
+            <button class="area-chip" data-area="Bahadrabad">Bahadrabad</button>
+            <button class="area-chip" data-area="Jwalapur">Jwalapur</button>
+            <button class="area-chip" data-area="Kankhal">Kankhal</button>
+            <button class="area-chip" data-area="Haridwar">Haridwar</button>
+            <button class="area-chip" data-area="Roorkee">Roorkee</button>
+            <button class="area-chip" data-area="Other">Other</button>
+          </div>
+
+          <div class="screen-footer">
+            <button class="btn btn-primary btn-block" id="confirmAreaBtn" disabled>Continue</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 4: NEARBY PEOPLE -->
+      <section class="screen" id="screen-nearby">
+        <div class="screen-header-bar">
+          <div>
+            <span class="active-zone-label">CURRENT ZONE</span>
+            <h3 class="active-zone-title" id="displayActiveArea">Roorkee</h3>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="changeZoneBtn">Change Area</button>
+        </div>
+
+        <div class="screen-content">
+          <p class="feed-intro">Showing active anonymous vibes in your broad area.</p>
+          <div class="user-cards-stack" id="nearbyFeed">
+            <!-- Dynamic user cards injected via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 5: INTEREST SENT -->
+      <section class="screen" id="screen-interest-sent">
+        <div class="screen-content center-content">
+          <div class="status-icon-wrapper">
+            <svg class="status-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </div>
+          <h2 class="screen-title">Interest Sent</h2>
+          <p class="screen-subtitle">Your anonymous signal has been transmitted. The other person receives only your zone and shared vibes.</p>
+
+          <div class="glass-card info-card">
+            <h4>What happens next?</h4>
+            <p>If they express interest back, a <strong>Mutual Vibe</strong> will trigger automatically.</p>
+          </div>
+
+          <div class="screen-footer action-buttons-vertical">
+            <button class="btn btn-primary btn-block" id="simulateMatchBtn">Simulate Receiver Reaction (Demo)</button>
+            <button class="btn btn-secondary btn-block" id="continueExploringBtn">Continue Exploring</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 6: ANONYMOUS NOTIFICATION -->
+      <section class="screen" id="screen-notification">
+        <button class="back-btn" data-back="screen-nearby">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back
+        </button>
+        <div class="screen-content center-content">
+          <div class="status-icon-wrapper">
+            <svg class="status-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+          <h2 class="screen-title">Incoming Signal</h2>
+          <p class="screen-subtitle">Someone nearby in your zone expressed an interest in your vibe.</p>
+
+          <div class="glass-card notification-card" id="notificationDetails">
+            <!-- Dynamically populated -->
+          </div>
+
+          <div class="screen-footer action-buttons-horizontal">
+            <button class="btn btn-outline btn-block" id="declineInterestBtn">Not Interested</button>
+            <button class="btn btn-primary btn-block" id="acceptInterestBtn">Show Interest</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 7: MUTUAL MATCH -->
+      <section class="screen" id="screen-mutual-match">
+        <div class="screen-content center-content">
+          <div class="status-icon-wrapper accent-status">
+            <svg class="status-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h1 class="hero-title match-title">It's a Mutual Vibe</h1>
+          <p class="screen-subtitle">You both expressed interest in connecting within the same broad area.</p>
+
+          <div class="glass-card match-card" id="matchSummaryCard">
+            <!-- Dynamically populated -->
+          </div>
+
+          <div class="screen-footer">
+            <button class="btn btn-primary btn-block" id="backToFeedFromMatchBtn">Back to Nearby Feed</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 8: PROFILE & SETTINGS -->
+      <section class="screen" id="screen-profile">
+        <button class="back-btn" data-back="screen-nearby">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back
+        </button>
+        <div class="screen-content">
+          <h2 class="screen-title">Anonymous Profile</h2>
+          <p class="screen-subtitle">Manage your local session parameters and interests.</p>
+
+          <div class="glass-card profile-card">
+            <div class="profile-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+            </div>
+            <div class="profile-details">
+              <span class="profile-label">ANONYMOUS ID</span>
+              <h3 class="profile-id" id="userAnonId">VIBE-8921</h3>
+              <span class="profile-label" style="margin-top: 10px;">CURRENT BROAD AREA</span>
+              <p class="profile-area" id="userCurrentArea">Roorkee</p>
+            </div>
+          </div>
+
+          <div class="glass-card settings-group">
+            <h4>My Vibe Tags</h4>
+            <div class="tags-container" id="userInterestsList"></div>
+            <div class="edit-tags-box">
+              <input type="text" id="newInterestInput" class="input-field" placeholder="Add tag (e.g. Coffee, Tech)..." />
+              <button class="btn btn-secondary" id="addInterestBtn">Add</button>
+            </div>
+          </div>
+
+          <div class="glass-card settings-group danger-zone">
+            <h4>Account & Data Management</h4>
+            <button class="btn btn-outline btn-block" id="resetDataBtn">Reset Local Session & Matches</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 9: SAFETY & PRIVACY -->
+      <section class="screen" id="screen-safety">
+        <button class="back-btn" data-back="screen-nearby">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back
+        </button>
+        <div class="screen-content">
+          <h2 class="screen-title">Safety & Privacy</h2>
+          <p class="screen-subtitle">How Vibe keeps location and identity completely private.</p>
+
+          <div class="safety-stack">
+            <div class="glass-card safety-item">
+              <div class="safety-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="safety-text">
+                <h4>Broad Zone Protection</h4>
+                <p>Exact GPS coordinates are never recorded, transmitted, or stored. Users are grouped into broad regional areas.</p>
+              </div>
+            </div>
+
+            <div class="glass-card safety-item">
+              <div class="safety-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <div class="safety-text">
+                <h4>Zero Personal Information</h4>
+                <p>No phone numbers, real names, or social accounts are required or exposed.</p>
+              </div>
+            </div>
+
+            <div class="glass-card safety-item">
+              <div class="safety-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+              </div>
+              <div class="safety-text">
+                <h4>Community Rules</h4>
+                <p>Vibe is strictly for respectful social discovery. Keep interactions safe and respectful.</p>
+              </div>
+            </div>
+
+            <div class="glass-card safety-actions">
+              <h4>Safety Tools</h4>
+              <button class="btn btn-outline btn-block" id="simulateBlockBtn">Block / Report User</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav" id="bottomNav">
+      <button class="nav-item active" id="navExplore">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36z"/></svg>
+        <span>Explore</span>
+      </button>
+      <button class="nav-item" id="navNotifications">
+        <div class="badge-dot-nav hidden" id="notifBadge"></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span>Signals</span>
+      </button>
+      <button class="nav-item" id="navProfile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+        <span>Profile</span>
+      </button>
+    </nav>
+
+    <!-- Toast Container for Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
