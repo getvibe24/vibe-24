@@ -869,3 +869,148 @@ body {
   from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* =========================================================
+   VIBE — ELEGANT CHERRY BLOSSOM AMBIENT BACKGROUND
+   ========================================================= */
+
+body {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(92, 61, 95, 0.18), transparent 42%),
+    linear-gradient(145deg, #05070b 0%, #0b0b12 48%, #08070c 100%);
+}
+
+/* Soft moonlight / atmosphere */
+body::before {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  top: -150px;
+  right: -150px;
+  border-radius: 50%;
+  background: rgba(214, 170, 205, 0.08);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Falling cherry blossom petals */
+body::after {
+  content: "✿   ·      ❀        ·    ✿       ·        ❀    ·     ✿";
+  position: fixed;
+  inset: -80px 0 0;
+  color: rgba(245, 190, 220, 0.62);
+  font-size: 18px;
+  letter-spacing: 42px;
+  line-height: 130px;
+  white-space: pre-wrap;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+  animation: petalsDrift 18s linear infinite;
+  transform: rotate(-7deg) scale(1.15);
+}
+
+@keyframes petalsDrift {
+  0% {
+    transform: translate3d(-20px, -80px, 0) rotate(-7deg) scale(1.15);
+  }
+
+  50% {
+    transform: translate3d(35px, 180px, 0) rotate(2deg) scale(1.15);
+  }
+
+  100% {
+    transform: translate3d(-15px, 420px, 0) rotate(-5deg) scale(1.15);
+  }
+}
+
+/* Keep application above the atmosphere */
+.app-container {
+  background: rgba(8, 10, 16, 0.76);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+/* Elegant glass surfaces */
+.glass-card,
+.option-card,
+.user-card,
+.pill,
+.area-chip {
+  background: rgba(15, 16, 24, 0.62);
+  border-color: rgba(255, 210, 230, 0.09);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Subtle cherry accent */
+.hero-badge,
+.accent-status,
+.profile-avatar,
+.option-icon {
+  background: rgba(220, 150, 195, 0.08);
+  border-color: rgba(230, 170, 210, 0.20);
+}
+
+.hero-badge,
+.option-icon,
+.profile-avatar,
+.accent-status {
+  color: #e3a9cf;
+}
+
+/* Softer primary buttons */
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    #9b5d8e,
+    #7553a3
+  );
+  box-shadow: 0 8px 28px rgba(140, 78, 130, 0.22);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(
+    135deg,
+    #aa6b9c,
+    #8261b0
+  );
+  box-shadow: 0 10px 32px rgba(140, 78, 130, 0.30);
+}
+
+/* Remove old blue/purple ambient blobs */
+.ambient-glow {
+  opacity: 0;
+}
+
+/* Keep content readable over wallpaper */
+.screen,
+.app-header,
+.bottom-nav {
+  position: relative;
+  z-index: 2;
+}
+
+/* Slight premium header transparency */
+.app-header {
+  background: rgba(8, 10, 16, 0.68);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.bottom-nav {
+  background: rgba(8, 10, 16, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+  body::after {
+    font-size: 14px;
+    letter-spacing: 30px;
+    line-height: 115px;
+    opacity: 0.35;
+  }
+}
