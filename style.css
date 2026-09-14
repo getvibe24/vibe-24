@@ -869,124 +869,7 @@ body {
   from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
 }
-/* =========================================================
-   VIBE — ELEGANT CHERRY BLOSSOM AMBIENT BACKGROUND
-   ========================================================= */
-
-body {
-  background:
-    radial-gradient(circle at 50% 20%, rgba(92, 61, 95, 0.18), transparent 42%),
-    linear-gradient(145deg, #05070b 0%, #0b0b12 48%, #08070c 100%);
-}
-
-/* Soft moonlight / atmosphere */
-body::before {
-  content: "";
-  position: fixed;
-  width: 420px;
-  height: 420px;
-  top: -150px;
-  right: -150px;
-  border-radius: 50%;
-  background: rgba(214, 170, 205, 0.08);
-  filter: blur(100px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Falling cherry blossom petals */
-body::after {
-  content: "✿   ·      ❀        ·    ✿       ·        ❀    ·     ✿";
-  position: fixed;
-  inset: -80px 0 0;
-  color: rgba(245, 190, 220, 0.62);
-  font-size: 18px;
-  letter-spacing: 42px;
-  line-height: 130px;
-  white-space: pre-wrap;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.45;
-  animation: petalsDrift 18s linear infinite;
-  transform: rotate(-7deg) scale(1.15);
-}
-
-@keyframes petalsDrift {
-  0% {
-    transform: translate3d(-20px, -80px, 0) rotate(-7deg) scale(1.15);
-  }
-
-  50% {
-    transform: translate3d(35px, 180px, 0) rotate(2deg) scale(1.15);
-  }
-
-  100% {
-    transform: translate3d(-15px, 420px, 0) rotate(-5deg) scale(1.15);
-  }
-}
-
-/* Keep application above the atmosphere */
-.app-container {
-  background: rgba(8, 10, 16, 0.76);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-}
-
-/* Elegant glass surfaces */
-.glass-card,
-.option-card,
-.user-card,
-.pill,
-.area-chip {
-  background: rgba(15, 16, 24, 0.62);
-  border-color: rgba(255, 210, 230, 0.09);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-
-/* Subtle cherry accent */
-.hero-badge,
-.accent-status,
-.profile-avatar,
-.option-icon {
-  background: rgba(220, 150, 195, 0.08);
-  border-color: rgba(230, 170, 210, 0.20);
-}
-
-.hero-badge,
-.option-icon,
-.profile-avatar,
-.accent-status {
-  color: #e3a9cf;
-}
-
-/* Softer primary buttons */
-.btn-primary {
-  background: linear-gradient(
-    135deg,
-    #9b5d8e,
-    #7553a3
-  );
-  box-shadow: 0 8px 28px rgba(140, 78, 130, 0.22);
-}
-
-.btn-primary:hover {
-  background: linear-gradient(
-    135deg,
-    #aa6b9c,
-    #8261b0
-  );
-  box-shadow: 0 10px 32px rgba(140, 78, 130, 0.30);
-}
-
-/* Remove old blue/purple ambient blobs */
-.ambient-glow {
-  opacity: 0;
-}
-
-/* Keep content readable over wallpaper */
-.screen,
-.app-header,
+/* .app-header,
 .bottom-nav {
   position: relative;
   z-index: 2;
@@ -1013,4 +896,137 @@ body::after {
     line-height: 115px;
     opacity: 0.35;
   }
+}
+/* ===== VIBE WELCOME SCREEN FIX ===== */
+
+#screen-welcome {
+    min-height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 70px 24px 120px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Make welcome content visible */
+#screen-welcome .hero-content,
+#screen-welcome .hero,
+#screen-welcome .welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 650px;
+    position: relative;
+    z-index: 5;
+}
+
+/* Main heading */
+#screen-welcome h1 {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #ffffff !important;
+    font-size: clamp(42px, 12vw, 76px);
+    font-weight: 800;
+    line-height: 1;
+    margin: 24px 0 16px;
+    letter-spacing: -2px;
+}
+
+/* Paragraph */
+#screen-welcome p {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: rgba(235, 231, 242, 0.72) !important;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 420px;
+    margin: 0 auto 30px;
+}
+
+/* Anonymous badge */
+#screen-welcome .hero-badge,
+#screen-welcome .badge {
+    position: relative;
+    z-index: 6;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Main button */
+#screen-welcome button,
+#screen-welcome .primary-btn,
+#screen-welcome .btn-primary {
+    position: relative;
+    z-index: 10;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 0 30px;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Feature row */
+#screen-welcome .features,
+#screen-welcome .feature-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    width: 100%;
+}
+
+#screen-welcome .feature,
+#screen-welcome .feature-item {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Prevent background layers from covering content */
+body::before,
+body::after,
+.ambient-glow {
+    pointer-events: none !important;
+}
+
+.app-container {
+    position: relative;
+    z-index: 2;
+}
+
+.screens-wrapper {
+    position: relative;
+    z-index: 3;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    #screen-welcome {
+        min-height: calc(100vh - 145px);
+        padding: 50px 20px 110px;
+    }
+
+    #screen-welcome h1 {
+        font-size: 52px;
+    }
+
+    #screen-welcome p {
+        font-size: 15px;
+        max-width: 330px;
+    }
 }
